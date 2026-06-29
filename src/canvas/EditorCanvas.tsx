@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback} from 'react'
 import { Stage, Layer, Line } from 'react-konva'
 import LaneLayer from './Lanelayer'
 import VertexLayer from './VertexLayer'
