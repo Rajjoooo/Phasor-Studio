@@ -1,4 +1,4 @@
-import { Layer, Line, Shape, Text, Group } from 'react-konva'
+import { Layer, Line, Text, Group } from 'react-konva'
 import { useEditorStore } from '../store/editorStore'
 import { useToolStore } from '../store/toolStore'
 import { useMapStore } from '../store/mapStore'
