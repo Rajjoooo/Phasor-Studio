@@ -1,0 +1,401 @@
+/* ── Properties Panel ─────────────────────────────── */
+
+.props-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: var(--panel-width);
+  height: 100vh;
+  z-index: 900;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-left: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight var(--duration-normal) var(--ease-out);
+  overflow: hidden;
+}
+
+.props-panel__header {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.props-panel__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.props-panel__title-icon {
+  color: var(--accent-blue);
+}
+
+.props-panel__close {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast);
+}
+
+.props-panel__close:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.props-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.props-panel__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: var(--space-md);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.props-panel__empty-icon {
+  opacity: 0.3;
+}
+
+.props-panel__empty-text {
+  font-size: var(--text-sm);
+  max-width: 200px;
+  line-height: 1.5;
+}
+
+/* ── Section ──────────────────────────────────────── */
+
+.props-section {
+  margin-bottom: var(--space-xl);
+}
+
+.props-section__label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-md);
+}
+
+/* ── Field ────────────────────────────────────────── */
+
+.props-field {
+  margin-bottom: var(--space-md);
+}
+
+.props-field__label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-xs);
+  display: block;
+}
+
+.props-field__input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition: all var(--duration-fast);
+}
+
+.props-field__input:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px var(--accent-blue-glow);
+}
+
+.props-field__input--number {
+  font-family: var(--font-mono);
+}
+
+.props-field__select {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 32px;
+}
+
+.props-field__select:focus {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 2px var(--accent-blue-glow);
+}
+
+/* ── Row (two fields side by side) ────────────────── */
+
+.props-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* ── Computed Value ────────────────────────────────── */
+
+.props-computed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-sm);
+}
+
+.props-computed__label {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.props-computed__value {
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--text-accent);
+}
+
+/* ── Action Buttons ───────────────────────────────── */
+
+.props-btn {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.props-btn:hover {
+  background: var(--bg-tertiary);
+  border-color: var(--border-strong);
+}
+
+.props-btn--primary {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: white;
+}
+
+.props-btn--primary:hover {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.props-btn--danger {
+  color: var(--accent-red);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.props-btn--danger:hover {
+  background: var(--accent-red-glow);
+  border-color: var(--accent-red);
+}
+
+/* ── Signal Phase Editor (inside panel) ───────────── */
+
+.phase-editor {
+  margin-top: var(--space-lg);
+}
+
+.phase-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  transition: border-color var(--duration-fast);
+}
+
+.phase-card:hover {
+  border-color: var(--border-default);
+}
+
+.phase-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.phase-card__name {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.phase-card__remove {
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast);
+}
+
+.phase-card__remove:hover {
+  color: var(--accent-red);
+  background: var(--accent-red-glow);
+}
+
+.phase-card__times {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.phase-time {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.phase-time__label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.phase-time__label--green { color: var(--accent-green); }
+.phase-time__label--amber { color: var(--accent-amber); }
+.phase-time__label--red { color: var(--accent-red); }
+
+.phase-time__input {
+  width: 100%;
+  padding: 4px 6px;
+  font-size: var(--text-xs);
+  font-family: var(--font-mono);
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 4px;
+  outline: none;
+  text-align: center;
+}
+
+.phase-time__input:focus {
+  border-color: var(--accent-blue);
+}
+
+/* ── Phase Timeline Bar ───────────────────────────── */
+
+.phase-timeline {
+  display: flex;
+  width: 100%;
+  height: 16px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.phase-timeline__segment {
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  font-family: var(--font-mono);
+  transition: flex var(--duration-normal);
+}
+
+.phase-timeline__segment--green {
+  background: var(--accent-green);
+}
+
+.phase-timeline__segment--amber {
+  background: var(--accent-amber);
+}
+
+.phase-timeline__segment--red {
+  background: var(--accent-red);
+}
+
+/* ── Approach assignment chips ────────────────────── */
+
+.phase-approaches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: var(--space-sm);
+}
+
+.phase-approach-chip {
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  background: var(--accent-blue-glow);
+  color: var(--accent-blue);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.phase-approach-chip:hover {
+  background: rgba(59, 130, 246, 0.3);
+}
+
+.phase-approach-chip--unassigned {
+  background: var(--bg-elevated);
+  color: var(--text-tertiary);
+  border-color: var(--border-default);
+}
